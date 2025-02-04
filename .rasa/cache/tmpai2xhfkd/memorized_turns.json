@@ -1,0 +1,17 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3BCidFF+SWlySmZceX5yZW5qTCFJdXFsbCwD7LiKl": "action_run_ab_testing_simulation",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3BCidFF+SWlySmZceX5yZW5qTCFJdXEucoUWlefFYDSDenlgASqFLgg==": "action_listen",
+    "eJwtysEJwCAMQNFVMkAncBUpQSTYQI2SxF7E3Su0t//gx7kOmF3pwZSdmwSYX6CkSgF+3GxOst9hpPth2fQAeZi3SopdObMUZDEul9ta5wtn9iPz": "action_get_customer_pricing_insights",
+    "eJyVjUEKwCAMBL/iA/oCv1JKEAk2UKMksRfx7xXaa6G97cAwu/axuF4FTwjRqLB3/R7AIaN3DxykhjzdpijTIZ5o3sWmVjIKVKFInIBYKe2m41s3ocF748/ddgFrkU/K": "action_listen",
+    "eJwtys0JgDAMQOFVMoATdBWREDSHoI0lSb2U7m79ub0H39z6BK0YX0hryKkJ2heolDnBP4d4sA5bnW0Y0bGRIJPtHLiJWy2PdHTJ9aC3e19uIlgmLA==": "action_simulate_market_disruptions",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohN7EoO7UkPiWzuKi0AKSyOL44M7c0JxHMriXOcKiO1HhM00i3MRYAGd5Tgg==": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhODEntTi+ILUoLb8oNzEvObW2NhYAU0cgdw==": "action_get_sales_performance",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhODEntTi+ILUoLb8oNzEvObWWOPPSU0viMfUSY3wsADFQRVY=": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhoCg/Nx+sIjUtLRWotiw1L7W4uLY2FgAg2yMe": "action_get_promotion_effectiveness",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhoCg/Nx+sIjUtLRWotiw1L7W4uJY4U9NTS+JxmUC8VbEAjT5NSw==": "action_listen",
+    "eJwtytEJgDAMRdFVMoATdBWREEqwgfqUJvpTursF/bsH7trHQv1q+rDksBOJ+hcMOTTRj2oeivnerm0+hslI1DTEKucigFY2uO0lfIztBRzVIu8=": "action_get_retail_channel_insights",
+    "eJyNjUEKgDAMBL+SB/iCfkUkhBLaQI3SRC+lf7egV6G3HRhm19YXaGflGym6HBqgvQOVdg7wQRFz1uFexnU4ogM9QGUnKRgzqXJBUZOU3fpcNbHjX2H+ansAZgBMvg==": "action_listen"
+  }
+}

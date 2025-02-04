@@ -2,29 +2,32 @@ version: "3.1"
 
 stories:
 
-- story: happy path
+- story: Sales Performance Inquiry
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  - intent: sales_performance
+  - action: action_get_sales_performance
 
-- story: sad path 1
+- story: Promotion Effectiveness Inquiry
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
+  - intent: promotion_effectiveness
+  - action: action_get_promotion_effectiveness
 
-- story: sad path 2
+- story: Retail & Channel Insights Inquiry
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+  - intent: retail_channel_insights
+  - action: action_get_retail_channel_insights
+
+- story: Customer & Pricing Insights Inquiry
+  steps:
+  - intent: customer_pricing_insights
+  - action: action_get_customer_pricing_insights
+
+- story: A/B Testing Simulation
+  steps:
+  - intent: ab_testing_simulations
+  - action: action_run_ab_testing_simulation
+
+- story: Market Disruptions & Supply Chain Simulations
+  steps:
+  - intent: market_disruptions_simulations
+  - action: action_simulate_market_disruptions
