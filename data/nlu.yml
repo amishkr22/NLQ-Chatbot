@@ -1,0 +1,50 @@
+version: "3.1"
+
+nlu:
+- intent: sales_performance
+  examples: |
+    - How did our total sales in Q4 compare to the previous quarter?
+    - Compare sales performance of Brand A vs. Brand B in the South region.
+    - Show me the top 5 SKUs contributing to 80% of our revenue.
+    - What is the average sales per store for our top-performing products?
+    - Which product categories saw the highest growth in sales YoY?
+
+- intent: promotion_effectiveness
+  examples: |
+    - Which promotional scheme generated the highest ROI last quarter?
+    - Show me a breakdown of incremental sales driven by discounts vs. bundling offers.
+    - Which promotions led to the highest customer retention?
+    - What percentage of our promotions led to cannibalization of other SKUs?
+    - How did our sales perform before, during, and after the last Diwali campaign?
+
+- intent: retail_channel_insights
+  examples: |
+    - Which regions/stores had the highest stockouts last month?
+    - Show me a heatmap of sales by city for the last six months.
+    - What percentage of our sales is coming from e-commerce vs. physical stores?
+    - Which distributor had the highest sales volume in the last 3 months?
+    - Are there any stores with consistently declining sales over the last three quarters?
+
+- intent: customer_pricing_insights
+  examples: |
+    - What is the impact of a 5% price increase on sales volume?
+    - What are the top 3 most price-sensitive products in our portfolio?
+    - Which SKUs have the highest cross-sell potential based on past sales trends?
+    - How do consumer preferences for discounts vs. cashback differ across demographics?
+    - What is the elasticity of demand for our premium product line?
+
+- intent: ab_testing_simulations
+  examples: |
+    - Simulate a scenario where we reduce the price of Product X by 10%—how does it impact revenue?
+    - If we allocate 20% more budget to digital promotions, what is the expected lift in sales?
+    - Simulate an A/B test for two discount strategies: Flat 10% off vs. Buy 1 Get 1—what is the projected sales impact?
+    - Predict next month’s sales for our best-selling SKU using past 12 months' trends.
+    - How will removing a low-performing SKU affect total category sales?
+
+- intent: market_disruptions_simulations
+  examples: |
+    - If a key competitor launches a similar product with a 15% lower price, how will it impact our sales?
+    - Simulate the impact of a 30-day supply chain disruption on stock levels and revenue.
+    - If we move 10% of our offline sales budget to e-commerce, how will it affect overall sales?
+    - What is the expected impact of increasing trade margins by 5% for our top distributors?
+    - Predict how a new competitor entering the market would affect our sales over the next six months.
