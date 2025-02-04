@@ -1,108 +1,76 @@
-import pandas as pd
-from rasa_sdk import Action
+from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import SlotSet
+import pandas as pd
 
-# Load dataset (ensure the correct file path)
-DATA_PATH = "NRM_DataSet_Training - All_Data.csv"
-
-# Load the dataset once (improves performance)
-df = pd.read_csv(DATA_PATH)
-
-
-class ActionGetSalesPerformance(Action):
+class ActionQuerySalesPerformance(Action):
     def name(self):
-        return "action_get_sales_performance"
+        return "action_query_sales_performance"
 
     def run(self, dispatcher, tracker, domain):
-        try:
-            # Load CSV file
-            df = pd.read_csv(DATA_PATH)
-
-            # Convert 'Date' column to datetime
-            df["Date"] = pd.to_datetime(df["Date"], errors='coerce')
-
-            # Extract Quarter from the Date
-            df["Quarter"] = df["Date"].dt.to_period("Q")
-
-            # Get last two quarters dynamically
-            latest_quarter = df["Quarter"].max()
-            previous_quarter = df["Quarter"].sort_values().unique()[-2]
-
-            # Calculate sales for both quarters
-            latest_sales = df[df["Quarter"] == latest_quarter]["Sales_Revenue"].sum()
-            previous_sales = df[df["Quarter"] == previous_quarter]["Sales_Revenue"].sum()
-
-            # Generate response
-            response = (f"Total sales in {latest_quarter} were ${latest_sales:,.2f}, "
-                        f"compared to ${previous_sales:,.2f} in {previous_quarter}.")
-            
-            dispatcher.utter_message(text=response)
-
-        except Exception as e:
-            dispatcher.utter_message(text=f"Error processing request: {str(e)}")
+        df = pd.read_csv("NRM_DataSet_Training - All_Data.csv")
+        df["Date"] = pd.to_datetime(df["Date"])
+        sales_q4 = df[df["Date"].dt.quarter == 4]["Sales_Revenue"].sum()
+        sales_q3 = df[df["Date"].dt.quarter == 3]["Sales_Revenue"].sum()
+        dispatcher.utter_message(text=f"The total sales in Q4 were {sales_q4}, compared to {sales_q3} in the previous quarter.")
         return []
 
-class ActionGetPromotionEffectiveness(Action):
+class ActionQueryPromotionEffectiveness(Action):
     def name(self):
-        return "action_get_promotion_effectiveness"
+        return "action_query_promotion_effectiveness"
 
     def run(self, dispatcher, tracker, domain):
-        # Example: Fetch promotion with the highest ROI
-        best_promo = df[df["ROI"] == df["ROI"].max()]["Promotion"].values[0]
-        response = f"The highest ROI promotion last quarter was '{best_promo}'."
-        dispatcher.utter_message(text=response)
+        df = pd.read_csv("NRM_DataSet_Training - All_Data.csv")
+        highest_roi = df.loc[df["Discount (%)"].idxmax()]
+        promotion_name = highest_roi["Product_Name"]
+        roi_value = highest_roi["Gross_Profit_Margin (%)"]
+        dispatcher.utter_message(text=f"The promotional scheme with the highest ROI last quarter was {promotion_name} with an ROI of {roi_value}%.")
         return []
 
-
-class ActionGetRetailChannelInsights(Action):
+class ActionQueryRetailInsights(Action):
     def name(self):
-        return "action_get_retail_channel_insights"
+        return "action_query_retail_insights"
 
     def run(self, dispatcher, tracker, domain):
-        # Example: Get region with the highest stockouts
-        region_stockouts = df[df["Stockouts"] == df["Stockouts"].max()]["Region"].values[0]
-        response = f"The region with the highest stockouts last month was {region_stockouts}."
-        dispatcher.utter_message(text=response)
+        df = pd.read_csv("NRM_DataSet_Training - All_Data.csv")
+        stockouts = df.groupby("Region")["Returns_Units"].sum().idxmax()
+        dispatcher.utter_message(text=f"The region with the highest stockouts last month was {stockouts}.")
         return []
 
-
-class ActionGetCustomerPricingInsights(Action):
+class ActionQueryCustomerPricingInsights(Action):
     def name(self):
-        return "action_get_customer_pricing_insights"
+        return "action_query_customer_pricing_insights"
 
     def run(self, dispatcher, tracker, domain):
-        # Example: Get most price-sensitive products
-        price_sensitive_products = df.nlargest(3, "Price Sensitivity")["Product"].tolist()
-        response = f"The top 3 most price-sensitive products are {', '.join(price_sensitive_products)}."
-        dispatcher.utter_message(text=response)
+        df = pd.read_csv("NRM_DataSet_Training - All_Data.csv")
+        price_increase = 1.05  # 5% increase
+        df["New_Price"] = df["Retail_Price"] * price_increase
+        df["New_Sales_Revenue"] = df["New_Price"] * df["Sales_Units"]
+        total_revenue = df["New_Sales_Revenue"].sum()
+        dispatcher.utter_message(text=f"A 5% price increase would result in total revenue of {total_revenue}.")
         return []
-
 
 class ActionRunABTestingSimulation(Action):
     def name(self):
         return "action_run_ab_testing_simulation"
 
     def run(self, dispatcher, tracker, domain):
-        # Example: Simulate impact of Flat 10% off vs. Buy 1 Get 1 Free
-        discount_impact = df[df["Discount Type"] == "Flat 10%"]["Projected Sales"].sum()
-        bogo_impact = df[df["Discount Type"] == "BOGO"]["Projected Sales"].sum()
-
-        response = (f"Projected sales impact:\n"
-                    f"- **Flat 10% Off**: ${discount_impact:,}\n"
-                    f"- **Buy 1 Get 1 Free**: ${bogo_impact:,}")
-        
-        dispatcher.utter_message(text=response)
+        df = pd.read_csv("NRM_DataSet_Training - All_Data.csv")
+        price_reduction = 0.9  # 10% reduction
+        df["New_Price"] = df["Retail_Price"] * price_reduction
+        df["New_Sales_Revenue"] = df["New_Price"] * df["Sales_Units"]
+        total_revenue = df["New_Sales_Revenue"].sum()
+        dispatcher.utter_message(text=f"A 10% price reduction would result in total revenue of {total_revenue}.")
         return []
-
 
 class ActionSimulateMarketDisruptions(Action):
     def name(self):
         return "action_simulate_market_disruptions"
 
     def run(self, dispatcher, tracker, domain):
-        # Example: Simulate competitor launching a cheaper product
-        competitor_impact = df["Market Share Loss"].mean()  # Example: Average market share loss
-        response = f"If a competitor launches a similar product at a 15% lower price, we estimate a market share decline of {competitor_impact:.2f}%."
-        dispatcher.utter_message(text=response)
+        df = pd.read_csv("NRM_DataSet_Training - All_Data.csv")
+        competitor_price_reduction = 0.85  # 15% reduction
+        df["New_Price"] = df["Retail_Price"] * competitor_price_reduction
+        df["New_Sales_Revenue"] = df["New_Price"] * df["Sales_Units"]
+        total_revenue = df["New_Sales_Revenue"].sum()
+        dispatcher.utter_message(text=f"If a competitor reduces prices by 15%, our total revenue would be {total_revenue}.")
         return []

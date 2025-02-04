@@ -1,0 +1,26 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"run_ab_testing_simulation\"}}]": "action_run_ab_testing_simulation",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"run_ab_testing_simulation\"}}, {\"prev_action\": {\"action_name\": \"action_run_ab_testing_simulation\"}, \"user\": {\"intent\": \"run_ab_testing_simulation\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"query_retail_insights\"}}]": "action_query_retail_insights",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"query_retail_insights\"}}, {\"prev_action\": {\"action_name\": \"action_query_retail_insights\"}, \"user\": {\"intent\": \"query_retail_insights\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"simulate_market_disruptions\"}}]": "action_simulate_market_disruptions",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"simulate_market_disruptions\"}}, {\"prev_action\": {\"action_name\": \"action_simulate_market_disruptions\"}, \"user\": {\"intent\": \"simulate_market_disruptions\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"query_promotion_effectiveness\"}}]": "action_query_promotion_effectiveness",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"query_promotion_effectiveness\"}}, {\"prev_action\": {\"action_name\": \"action_query_promotion_effectiveness\"}, \"user\": {\"intent\": \"query_promotion_effectiveness\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"query_sales_performance\"}}]": "action_query_sales_performance",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"query_sales_performance\"}}, {\"prev_action\": {\"action_name\": \"action_query_sales_performance\"}, \"user\": {\"intent\": \"query_sales_performance\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"query_customer_pricing_insights\"}}]": "action_query_customer_pricing_insights",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"query_customer_pricing_insights\"}}, {\"prev_action\": {\"action_name\": \"action_query_customer_pricing_insights\"}, \"user\": {\"intent\": \"query_customer_pricing_insights\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {},
+    "rules_not_in_stories": [
+      "predicting default action with intent session_start",
+      "predicting default action with intent back",
+      "predicting default action with intent restart"
+    ]
+  }
+}

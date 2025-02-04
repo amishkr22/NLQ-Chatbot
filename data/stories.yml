@@ -1,33 +1,31 @@
-version: "3.1"
-
+version: "3.0"
 stories:
+  - story: Sales Performance Query
+    steps:
+      - intent: query_sales_performance
+      - action: action_query_sales_performance
 
-- story: Sales Performance Inquiry
-  steps:
-  - intent: sales_performance
-  - action: action_get_sales_performance
+  - story: Promotion Effectiveness Query
+    steps:
+      - intent: query_promotion_effectiveness
+      - action: action_query_promotion_effectiveness
 
-- story: Promotion Effectiveness Inquiry
-  steps:
-  - intent: promotion_effectiveness
-  - action: action_get_promotion_effectiveness
+  - story: Retail Insights Query
+    steps:
+      - intent: query_retail_insights
+      - action: action_query_retail_insights
 
-- story: Retail & Channel Insights Inquiry
-  steps:
-  - intent: retail_channel_insights
-  - action: action_get_retail_channel_insights
+  - story: Customer Pricing Insights Query
+    steps:
+      - intent: query_customer_pricing_insights
+      - action: action_query_customer_pricing_insights
 
-- story: Customer & Pricing Insights Inquiry
-  steps:
-  - intent: customer_pricing_insights
-  - action: action_get_customer_pricing_insights
+  - story: A/B Testing Simulation
+    steps:
+      - intent: run_ab_testing_simulation
+      - action: action_run_ab_testing_simulation
 
-- story: A/B Testing Simulation
-  steps:
-  - intent: ab_testing_simulations
-  - action: action_run_ab_testing_simulation
-
-- story: Market Disruptions & Supply Chain Simulations
-  steps:
-  - intent: market_disruptions_simulations
-  - action: action_simulate_market_disruptions
+  - story: Market Disruptions Simulation
+    steps:
+      - intent: simulate_market_disruptions
+      - action: action_simulate_market_disruptions

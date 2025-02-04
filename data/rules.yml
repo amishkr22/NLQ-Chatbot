@@ -1,13 +1,31 @@
-version: "3.1"
+version: "3.0"
+rules:
+  - rule: Handle Sales Performance Query
+    steps:
+      - intent: query_sales_performance
+      - action: action_query_sales_performance
 
-# rules:
+  - rule: Handle Promotion Effectiveness Query
+    steps:
+      - intent: query_promotion_effectiveness
+      - action: action_query_promotion_effectiveness
 
-# - rule: Say goodbye anytime the user says goodbye
-#   steps:
-#   - intent: goodbye
-#   - action: utter_goodbye
+  - rule: Handle Retail Insights Query
+    steps:
+      - intent: query_retail_insights
+      - action: action_query_retail_insights
 
-# - rule: Say 'I am a bot' anytime the user challenges
-#   steps:
-#   - intent: bot_challenge
-#   - action: utter_iamabot
+  - rule: Handle Customer Pricing Insights Query
+    steps:
+      - intent: query_customer_pricing_insights
+      - action: action_query_customer_pricing_insights
+
+  - rule: Handle A/B Testing Simulation
+    steps:
+      - intent: run_ab_testing_simulation
+      - action: action_run_ab_testing_simulation
+
+  - rule: Handle Market Disruptions Simulation
+    steps:
+      - intent: simulate_market_disruptions
+      - action: action_simulate_market_disruptions

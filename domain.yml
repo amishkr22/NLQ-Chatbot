@@ -1,53 +1,30 @@
-version: "3.1"
-
+version: "3.0"
 intents:
-  - sales_performance
-  - promotion_effectiveness
-  - retail_channel_insights
-  - customer_pricing_insights
-  - ab_testing_simulations
-  - market_disruptions_simulations
+  - query_sales_performance
+  - query_promotion_effectiveness
+  - query_retail_insights
+  - query_customer_pricing_insights
+  - run_ab_testing_simulation
+  - simulate_market_disruptions
 
 responses:
-  utter_sales_performance:
-    - text: "Our Q4 sales increased by 12% compared to Q3."
-    - text: "Brand A outperformed Brand B by 8% in the South region."
-    - text: "Top 5 SKUs contributing to 80% of our revenue are SKU-101, SKU-202, SKU-303, SKU-404, SKU-505."
-    - text: "The average sales per store for top-performing products is $15,000."
-
-  utter_promotion_effectiveness:
-    - text: "The highest ROI promotion was the 'Buy 1 Get 1 Free' campaign."
-    - text: "Discounts contributed 65% of incremental sales, while bundling offers contributed 35%."
-    - text: "The cashback-based promotions led to the highest customer retention."
-
-  utter_retail_channel_insights:
-    - text: "The highest stockouts last month were in Mumbai, Delhi, and Bangalore."
-    - text: "E-commerce contributes 45% of our sales, while physical stores contribute 55%."
-    - text: "Distributor XYZ had the highest sales volume in the last three months."
-
-  utter_customer_pricing_insights:
-    - text: "A 5% price increase may reduce sales volume by 8%, based on past trends."
-    - text: "The most price-sensitive products in our portfolio are Product A, Product B, and Product C."
-    - text: "Consumer preference for discounts is higher in the 18-30 age group, while cashback is preferred by 30-50 age group."
-
-  utter_ab_testing_simulations:
-    - text: "A 10% price reduction in Product X is expected to increase revenue by 15%."
-    - text: "Allocating 20% more budget to digital promotions can boost sales by an estimated 10%."
-    - text: "The A/B test indicates that 'Flat 10% Off' drives 20% more sales than 'Buy 1 Get 1 Free'."
-
-  utter_market_disruptions_simulations:
-    - text: "If a key competitor launches a product at a 15% lower price, we estimate a 10% decline in sales."
-    - text: "A 30-day supply chain disruption could lead to a 12% revenue decline."
-    - text: "Shifting 10% of offline sales budget to e-commerce is projected to increase total sales by 8%."
+  utter_query_sales_performance:
+    - text: "The total sales in Q4 were {sales_q4}, compared to {sales_previous_quarter} in the previous quarter."
+  utter_query_promotion_effectiveness:
+    - text: "The promotional scheme with the highest ROI last quarter was {promotion_name} with an ROI of {roi_value}%."
+  utter_query_retail_insights:
+    - text: "The region with the highest stockouts last month was {stockouts}."
+  utter_query_customer_pricing_insights:
+    - text: "A 5% price increase would result in total revenue of {total_revenue}."
+  utter_run_ab_testing_simulation:
+    - text: "A 10% price reduction would result in total revenue of {total_revenue}."
+  utter_simulate_market_disruptions:
+    - text: "If a competitor reduces prices by 15%, our total revenue would be {total_revenue}."
 
 actions:
-  - action_get_sales_performance
-  - action_get_promotion_effectiveness
-  - action_get_retail_channel_insights
-  - action_get_customer_pricing_insights
+  - action_query_sales_performance
+  - action_query_promotion_effectiveness
+  - action_query_retail_insights
+  - action_query_customer_pricing_insights
   - action_run_ab_testing_simulation
   - action_simulate_market_disruptions
-
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true

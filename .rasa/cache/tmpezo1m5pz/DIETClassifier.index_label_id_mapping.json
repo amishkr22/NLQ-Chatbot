@@ -1,0 +1,8 @@
+{
+  "0": "query_customer_pricing_insights",
+  "1": "query_promotion_effectiveness",
+  "2": "query_retail_insights",
+  "3": "query_sales_performance",
+  "4": "run_ab_testing_simulation",
+  "5": "simulate_market_disruptions"
+}
